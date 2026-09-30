@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>بوابة المزايا | Bawwabat Al-Mazaya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Markazi+Text:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0D1F35; --navy2:#1B3A63; --copper:#C17A3E; --copper-lt:#E3B487;
+  --cream:#F7F3EA; --ink:#1B1B1D; --slate:#5C6470;
+  box-sizing:border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth; scroll-padding-top: env(safe-area-inset-top, 0px);}
+body{
+  font-family:'Tajawal', sans-serif; background:var(--cream); color:var(--ink);
+  min-height:100%;
+}
+img,svg{max-width:100%; display:block;}
+.wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
+
+/* NAV */
+header{position:sticky; top:0; z-index:20; background:rgba(13,31,53,0.92); backdrop-filter:blur(6px);
+  padding-top: env(safe-area-inset-top, 0px);}
+.nav{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1100px; margin:0 auto;}
+.brand{display:flex; align-items:center; gap:10px;}
+.brand svg{width:26px; height:34px;}
+.brand span{color:#fff; font-family:'Markazi Text',serif; font-weight:700; font-size:22px;}
+.nav a.cta{background:var(--copper); color:#fff; padding:9px 18px; border-radius:24px; text-decoration:none; font-weight:700; font-size:14px; white-space:nowrap;}
+.nav-right{display:flex; align-items:center; gap:10px;}
+.lang-btn{background:transparent; border:1.5px solid rgba(255,255,255,0.4); color:#fff; padding:8px 16px; border-radius:20px; font-weight:700; font-size:13px; cursor:pointer; font-family:'Tajawal',sans-serif;}
+.lang-btn:hover{border-color:var(--copper); color:var(--copper-lt);}
+[data-en]{display:none;}
+html.en-mode [data-ar]{display:none;}
+html.en-mode [data-en]{display:inline;}
+
+/* HERO */
+.hero{background:radial-gradient(140% 120% at 15% 0%, var(--navy2) 0%, var(--navy) 55%, #060D18 100%); color:#fff; padding:70px 0 90px; text-align:center;}
+.hero .mark{width:70px; height:92px; margin:0 auto 22px;}
+.hero h1{font-family:'Markazi Text',serif; font-size:clamp(34px,6vw,52px); font-weight:700; margin-bottom:10px;}
+.hero .en{color:var(--copper-lt); letter-spacing:3px; font-weight:700; font-size:13px; margin-bottom:22px;}
+.hero p{max-width:560px; margin:0 auto 30px; font-size:17px; line-height:1.9; color:#D7DCE3;}
+.hero .btns{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+.btn-primary{background:var(--copper); color:#fff; padding:13px 30px; border-radius:26px; text-decoration:none; font-weight:700; font-size:15px;}
+.btn-ghost{border:1.5px solid rgba(255,255,255,0.35); color:#fff; padding:13px 30px; border-radius:26px; text-decoration:none; font-weight:700; font-size:15px;}
+
+/* SECTIONS */
+section{padding:64px 0;}
+.kicker{color:var(--copper); font-weight:700; font-size:13px; letter-spacing:2px; margin-bottom:8px;}
+h2{font-family:'Markazi Text',serif; font-size:clamp(26px,4vw,34px); color:var(--navy); margin-bottom:18px;}
+.lead{font-size:16px; line-height:2; color:var(--slate); max-width:680px;}
+
+.about{background:#fff;}
+.about-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;}
+.stat-box{background:var(--cream); border:1px solid #E7E1D2; border-radius:14px; padding:20px; text-align:center;}
+.stat-box b{display:block; font-family:'Markazi Text',serif; font-size:30px; color:var(--copper);}
+.stat-box span{font-size:13px; color:var(--slate);}
+.stats-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+
+.network{background:var(--navy); color:#fff;}
+.network h2{color:#fff;}
+.net-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin-top:26px;}
+.net-item{background:rgba(255,255,255,0.05); border:1px solid rgba(227,180,135,0.3); border-radius:12px; padding:22px 12px; text-align:center; font-weight:700; font-size:14.5px;}
+.net-item .em{font-size:26px; margin-bottom:8px;}
+
+.why{background:var(--cream);}
+.why-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:22px; margin-top:10px;}
+.why-card{background:#fff; border-radius:14px; padding:24px; border:1px solid #ECE6D8;}
+.why-card .num{font-family:'Markazi Text',serif; color:var(--copper); font-size:26px; font-weight:700;}
+.why-card h3{font-size:17px; margin:8px 0 6px; color:var(--navy);}
+.why-card p{font-size:14px; color:var(--slate); line-height:1.8;}
+
+.contact{background:#fff; text-align:center;}
+.contact .btns{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+.btn-whatsapp{background:#25D366; color:#fff; padding:13px 28px; border-radius:26px; text-decoration:none; font-weight:700; font-size:15px; display:inline-flex; align-items:center; gap:8px;}
+.btn-outline{border:1.5px solid var(--navy); color:var(--navy); padding:13px 28px; border-radius:26px; text-decoration:none; font-weight:700; font-size:15px;}
+
+footer{background:var(--navy); color:#9AA6B5; padding:28px 0; text-align:center; font-size:13px; line-height:1.9;}
+footer b{color:#fff;}
+
+@media(max-width:760px){ .about-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <svg viewBox="0 0 70 92" fill="none"><path d="M8 88 L8 30 C8 12, 20 2, 35 2 C50 2, 62 12, 62 30 L62 88 Z" stroke="#C17A3E" stroke-width="6" stroke-linejoin="round"/><circle cx="22" cy="46" r="4.5" fill="#F7F3EA"/></svg>
+      <span>بوابة المزايا</span>
+    </div>
+    <div class="nav-right">
+      <button class="lang-btn" onclick="toggleLang()" id="langBtn">English</button>
+      <a class="cta" href="#contact"><span data-ar>تواصل معنا</span><span data-en>Contact Us</span></a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <svg class="mark" viewBox="0 0 70 92" fill="none"><path d="M8 88 L8 30 C8 12, 20 2, 35 2 C50 2, 62 12, 62 30 L62 88 Z" stroke="#C17A3E" stroke-width="6" stroke-linejoin="round"/><circle cx="22" cy="46" r="4.5" fill="#F7F3EA"/></svg>
+    <h1><span data-ar>بوابة المزايا</span><span data-en>Bawwabat Al-Mazaya</span></h1>
+    <div class="en">BAWWABAT AL-MAZAYA</div>
+    <p><span data-ar>بطاقة عضوية واحدة، بسيطة وموثوقة، تفتحلك أبواب خصومات حقيقية على شبكة واسعة من الخدمات المختارة بعناية.</span><span data-en>One simple, trusted membership card that opens real discounts across a wide network of carefully selected services.</span></p>
+    <div class="btns">
+      <a class="btn-primary" href="#contact"><span data-ar>اشترك الآن</span><span data-en>Join Now</span></a>
+      <a class="btn-ghost" href="#network"><span data-ar>شبكة المزوّدين</span><span data-en>Our Network</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="kicker"><span data-ar>من نحن</span><span data-en>About Us</span></div>
+      <h2><span data-ar>شركة أردنية أصيلة، بلا تعقيد</span><span data-en>A Genuine Jordanian Company, Made Simple</span></h2>
+      <p class="lead">
+        <span data-ar>بوابة المزايا للتسويق ذ.م.م شركة أردنية مسجَّلة رسميًا، تدير برنامج عضوية يربط أعضاءه بشبكة موثوقة من مزوّدي الخدمات بخصومات حقيقية وواضحة — ببطاقة عضوية واحدة، وسعر واحد، بلا شروط تأمينية مبهمة.</span>
+        <span data-en>Bawwabat Al-Mazaya for Marketing LLC is an officially registered Jordanian company running a membership program that connects members to a trusted network of service providers with real, clear discounts — one membership card, one price, no confusing insurance terms.</span>
+      </p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-box"><b>35</b><span><span data-ar>دينارًا اشتراكًا سنويًا</span><span data-en>JOD / year</span></span></div>
+      <div class="stat-box"><b>9+</b><span><span data-ar>تخصصات مغطاة</span><span data-en>specialties covered</span></span></div>
+      <div class="stat-box"><b>1</b><span><span data-ar>بطاقة موحّدة بلا تعقيد</span><span data-en>simple unified card</span></span></div>
+      <div class="stat-box"><b>100%</b><span><span data-ar>أردنية الهوية والملكية</span><span data-en>Jordanian owned</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="network" id="network">
+  <div class="wrap">
+    <div class="kicker"><span data-ar>الشبكة</span><span data-en>Our Network</span></div>
+    <h2><span data-ar>تخصصات تغطي احتياجك كله</span><span data-en>Specialties Covering All Your Needs</span></h2>
+    <div class="net-grid">
+      <div class="net-item"><div class="em">🧪</div><span data-ar>مختبرات التحاليل</span><span data-en>Medical Labs</span></div>
+      <div class="net-item"><div class="em">🩻</div><span data-ar>الأشعة والتصوير</span><span data-en>Imaging & X-Ray</span></div>
+      <div class="net-item"><div class="em">🦷</div><span data-ar>طب الأسنان</span><span data-en>Dental Care</span></div>
+      <div class="net-item"><div class="em">✨</div><span data-ar>التجميل والليزر</span><span data-en>Cosmetics & Laser</span></div>
+      <div class="net-item"><div class="em">🤲</div><span data-ar>العلاج الطبيعي</span><span data-en>Physiotherapy</span></div>
+      <div class="net-item"><div class="em">🥗</div><span data-ar>التغذية العلاجية</span><span data-en>Clinical Nutrition</span></div>
+      <div class="net-item"><div class="em">💊</div><span data-ar>الصيدليات</span><span data-en>Pharmacies</span></div>
+      <div class="net-item"><div class="em">👁️</div><span data-ar>طب وجراحة العيون</span><span data-en>Eye Care & Surgery</span></div>
+      <div class="net-item"><div class="em">🩺</div><span data-ar>أطباء مختصون</span><span data-en>Specialist Doctors</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <div class="kicker"><span data-ar>لماذا بوابة المزايا</span><span data-en>Why Bawwabat Al-Mazaya</span></div>
+    <h2><span data-ar>أربعة أسباب تجعلنا مختلفين</span><span data-en>Four Reasons We're Different</span></h2>
+    <div class="why-grid">
+      <div class="why-card"><div class="num">01</div><h3><span data-ar>هوية أردنية أصيلة</span><span data-en>Genuine Jordanian Identity</span></h3><p><span data-ar>مصمَّمة خصيصًا لاحتياجات السوق المحلي.</span><span data-en>Built specifically for the local market's needs.</span></p></div>
+      <div class="why-card"><div class="num">02</div><h3><span data-ar>شفافية كاملة</span><span data-en>Complete Transparency</span></h3><p><span data-ar>عضوية خصومات واضحة، وليست بوليصة تأمين.</span><span data-en>A clear discount membership, not an insurance policy.</span></p></div>
+      <div class="why-card"><div class="num">03</div><h3><span data-ar>بطاقة واحدة بسيطة</span><span data-en>One Simple Card</span></h3><p><span data-ar>سعر واحد، خصم حقيقي، بلا تعقيد درجات.</span><span data-en>One price, real discounts, no tier complexity.</span></p></div>
+      <div class="why-card"><div class="num">04</div><h3><span data-ar>شبكة تكبر باستمرار</span><span data-en>A Growing Network</span></h3><p><span data-ar>مزوّدون جدد ينضمّون بشكل دوري.</span><span data-en>New providers join regularly.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="kicker"><span data-ar>تواصل معنا</span><span data-en>Get in Touch</span></div>
+    <h2><span data-ar>لنبدأ رحلتك معنا</span><span data-en>Let's Start Your Journey</span></h2>
+    <p class="lead" style="margin:0 auto;"><span data-ar>للاستفسار عن العضوية أو الانضمام كمزوّد خدمة، تواصل معنا مباشرة.</span><span data-en>For membership inquiries or to join as a service provider, reach out directly.</span></p>
+    <div class="btns">
+      <a class="btn-whatsapp" href="https://wa.me/9627XXXXXXXX" target="_blank" rel="noopener"><span data-ar>تواصل عبر واتساب</span><span data-en>Chat on WhatsApp</span></a>
+      <a class="btn-outline" href="mailto:info@bawwabatal-mazaya.com"><span data-ar>راسلنا بالإيميل</span><span data-en>Email Us</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b><span data-ar>شركة بوابة المزايا للتسويق ذ.م.م</span><span data-en>Bawwabat Al-Mazaya for Marketing LLC</span></b> — <span data-ar>عمّان، المملكة الأردنية الهاشمية</span><span data-en>Amman, Hashemite Kingdom of Jordan</span></div>
+    <div><span data-ar>عضوية خصومات وليست بوليصة تأمين.</span><span data-en>A discount membership, not an insurance policy.</span></div>
+    <div><span data-ar>© 2026 بوابة المزايا. جميع الحقوق محفوظة.</span><span data-en>© 2026 Bawwabat Al-Mazaya. All rights reserved.</span></div>
+  </div>
+</footer>
+
+<script>
+function toggleLang(){
+  const html = document.getElementById('htmlRoot');
+  const btn = document.getElementById('langBtn');
+  const isEn = html.classList.toggle('en-mode');
+  if(isEn){
+    html.setAttribute('lang','en');
+    html.setAttribute('dir','ltr');
+    btn.textContent = 'العربية';
+  } else {
+    html.setAttribute('lang','ar');
+    html.setAttribute('dir','rtl');
+    btn.textContent = 'English';
+  }
+}
+</script>
+
+</body>
+</html>
