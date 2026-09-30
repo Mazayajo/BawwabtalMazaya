@@ -65,8 +65,20 @@ h2{font-family:'Markazi Text',serif; font-size:clamp(26px,4vw,34px); color:var(-
 .network{background:var(--navy); color:#fff;}
 .network h2{color:#fff;}
 .net-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin-top:26px;}
-.net-item{background:rgba(255,255,255,0.05); border:1px solid rgba(227,180,135,0.3); border-radius:12px; padding:22px 12px; text-align:center; font-weight:700; font-size:14.5px;}
+.net-item{background:rgba(255,255,255,0.05); border:1px solid rgba(227,180,135,0.3); border-radius:12px; padding:22px 12px; text-align:center; font-weight:700; font-size:14.5px; cursor:pointer; transition:background 0.2s, transform 0.15s;}
+.net-item:hover{background:rgba(227,180,135,0.15); transform:translateY(-2px);}
 .net-item .em{font-size:26px; margin-bottom:8px;}
+
+/* MODAL */
+.modal-overlay{display:none; position:fixed; inset:0; background:rgba(6,13,24,0.75); z-index:50; align-items:center; justify-content:center; padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:#fff; border-radius:18px; max-width:480px; width:100%; max-height:80vh; overflow-y:auto; padding:28px 24px; position:relative;}
+.modal-close{position:absolute; top:16px; left:16px; background:var(--cream); border:none; width:34px; height:34px; border-radius:50%; font-size:18px; cursor:pointer; color:var(--navy);}
+.modal-box .modal-em{font-size:34px; margin-bottom:10px;}
+.modal-box h3{font-family:'Markazi Text',serif; font-size:24px; color:var(--navy); margin-bottom:16px;}
+.provider-list{list-style:none;}
+.provider-list li{padding:12px 14px; background:var(--cream); border-radius:10px; margin-bottom:8px; font-weight:700; font-size:14.5px; color:var(--ink);}
+.empty-note{color:var(--slate); font-size:14px; line-height:1.9; background:var(--cream); padding:16px; border-radius:10px;}
 
 .why{background:var(--cream);}
 .why-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:22px; margin-top:10px;}
@@ -106,7 +118,8 @@ footer b{color:#fff;}
     <svg class="mark" viewBox="0 0 70 92" fill="none"><path d="M8 88 L8 30 C8 12, 20 2, 35 2 C50 2, 62 12, 62 30 L62 88 Z" stroke="#C17A3E" stroke-width="6" stroke-linejoin="round"/><circle cx="22" cy="46" r="4.5" fill="#F7F3EA"/></svg>
     <h1><span data-ar>بوابة المزايا</span><span data-en>Bawwabat Al-Mazaya</span></h1>
     <div class="en">BAWWABAT AL-MAZAYA</div>
-    <p><span data-ar>بطاقة عضوية واحدة، بسيطة وموثوقة، تفتحلك أبواب خصومات حقيقية على شبكة واسعة من الخدمات المختارة بعناية.</span><span data-en>One simple, trusted membership card that opens real discounts across a wide network of carefully selected services.</span></p>
+    <p><span data-ar>عضوية تمنحك خصومات حصرية وموثوقة ضمن شبكة واسعة من الجهات المختارة بعناية، لتستفيد أكثر وتدفع أقل.</span><span data-en>A membership that gives you exclusive, trusted discounts across a wide network of carefully selected partners — so you get more, and pay less.</span></p>
+    <p style="margin-top:14px; font-weight:700; color:#fff;"><span data-ar>اكتشف مزايا عضويتك وابدأ التوفير اليوم!</span><span data-en>Discover your membership perks and start saving today!</span></p>
     <div class="btns">
       <a class="btn-primary" href="#contact"><span data-ar>اشترك الآن</span><span data-en>Join Now</span></a>
       <a class="btn-ghost" href="#network"><span data-ar>شبكة المزوّدين</span><span data-en>Our Network</span></a>
@@ -126,7 +139,7 @@ footer b{color:#fff;}
     </div>
     <div class="stats-grid">
       <div class="stat-box"><b>35</b><span><span data-ar>دينارًا اشتراكًا سنويًا</span><span data-en>JOD / year</span></span></div>
-      <div class="stat-box"><b>9+</b><span><span data-ar>تخصصات مغطاة</span><span data-en>specialties covered</span></span></div>
+      <div class="stat-box"><b>8+</b><span><span data-ar>تخصصات مغطاة</span><span data-en>specialties covered</span></span></div>
       <div class="stat-box"><b>1</b><span><span data-ar>بطاقة موحّدة بلا تعقيد</span><span data-en>simple unified card</span></span></div>
       <div class="stat-box"><b>100%</b><span><span data-ar>أردنية الهوية والملكية</span><span data-en>Jordanian owned</span></span></div>
     </div>
@@ -138,18 +151,28 @@ footer b{color:#fff;}
     <div class="kicker"><span data-ar>الشبكة</span><span data-en>Our Network</span></div>
     <h2><span data-ar>تخصصات تغطي احتياجك كله</span><span data-en>Specialties Covering All Your Needs</span></h2>
     <div class="net-grid">
-      <div class="net-item"><div class="em">🧪</div><span data-ar>مختبرات التحاليل</span><span data-en>Medical Labs</span></div>
-      <div class="net-item"><div class="em">🩻</div><span data-ar>الأشعة والتصوير</span><span data-en>Imaging & X-Ray</span></div>
-      <div class="net-item"><div class="em">🦷</div><span data-ar>طب الأسنان</span><span data-en>Dental Care</span></div>
-      <div class="net-item"><div class="em">✨</div><span data-ar>التجميل والليزر</span><span data-en>Cosmetics & Laser</span></div>
-      <div class="net-item"><div class="em">🤲</div><span data-ar>العلاج الطبيعي</span><span data-en>Physiotherapy</span></div>
-      <div class="net-item"><div class="em">🥗</div><span data-ar>التغذية العلاجية</span><span data-en>Clinical Nutrition</span></div>
-      <div class="net-item"><div class="em">💊</div><span data-ar>الصيدليات</span><span data-en>Pharmacies</span></div>
-      <div class="net-item"><div class="em">👁️</div><span data-ar>طب وجراحة العيون</span><span data-en>Eye Care & Surgery</span></div>
-      <div class="net-item"><div class="em">🩺</div><span data-ar>أطباء مختصون</span><span data-en>Specialist Doctors</span></div>
+      <div class="net-item" onclick="openCategory('labs')"><div class="em">🧪</div><span data-ar>مختبرات التحاليل</span><span data-en>Medical Labs</span></div>
+      <div class="net-item" onclick="openCategory('imaging')"><div class="em">🩻</div><span data-ar>الأشعة والتصوير</span><span data-en>Imaging & X-Ray</span></div>
+      <div class="net-item" onclick="openCategory('dental')"><div class="em">🦷</div><span data-ar>طب الأسنان</span><span data-en>Dental Care</span></div>
+      <div class="net-item" onclick="openCategory('cosmetics')"><div class="em">✨</div><span data-ar>التجميل والليزر</span><span data-en>Cosmetics & Laser</span></div>
+      <div class="net-item" onclick="openCategory('physio')"><div class="em">🤲</div><span data-ar>العلاج الطبيعي</span><span data-en>Physiotherapy</span></div>
+      <div class="net-item" onclick="openCategory('pharmacy')"><div class="em">💊</div><span data-ar>الصيدليات</span><span data-en>Pharmacies</span></div>
+      <div class="net-item" onclick="openCategory('eye')"><div class="em">👁️</div><span data-ar>طب وجراحة العيون</span><span data-en>Eye Care & Surgery</span></div>
+      <div class="net-item" onclick="openCategory('specialists')"><div class="em">🩺</div><span data-ar>أطباء مختصون</span><span data-en>Specialist Doctors</span></div>
     </div>
+    <p style="margin-top:18px; color:#9AA6B5; font-size:13px; text-align:center;"><span data-ar>اضغط على أي تخصص لعرض المشتركين ضمن شبكتنا</span><span data-en>Tap any category to view our network partners</span></p>
   </div>
 </section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this) closeCategory()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeCategory()">✕</button>
+    <div class="modal-em" id="modalEm">🧪</div>
+    <h3 id="modalTitle">مختبرات التحاليل</h3>
+    <div id="modalBody"></div>
+  </div>
+</div>
 
 <section class="why">
   <div class="wrap">
@@ -185,6 +208,43 @@ footer b{color:#fff;}
 </footer>
 
 <script>
+/* =========================================================
+   قائمة المزوّدين حسب كل تخصص — عدّلي هون لإضافة أسماء جديدة
+   طريقة الإضافة: اكتبي اسم المزوّد داخل [ ] بين علامتي تنصيص
+   مثال: labs: ["مختبر الأمل", "مختبر الحياة"]
+   ========================================================= */
+const providers = {
+  labs:        { em:"🧪", ar:"مختبرات التحاليل", en:"Medical Labs", list: [] },
+  imaging:     { em:"🩻", ar:"الأشعة والتصوير", en:"Imaging & X-Ray", list: [] },
+  dental:      { em:"🦷", ar:"طب الأسنان", en:"Dental Care", list: [] },
+  cosmetics:   { em:"✨", ar:"التجميل والليزر", en:"Cosmetics & Laser", list: [] },
+  physio:      { em:"🤲", ar:"العلاج الطبيعي", en:"Physiotherapy", list: [] },
+  pharmacy:    { em:"💊", ar:"الصيدليات", en:"Pharmacies", list: [] },
+  eye:         { em:"👁️", ar:"طب وجراحة العيون", en:"Eye Care & Surgery", list: [] },
+  specialists: { em:"🩺", ar:"أطباء مختصون", en:"Specialist Doctors", list: [] },
+};
+
+function isEnglish(){ return document.getElementById('htmlRoot').classList.contains('en-mode'); }
+
+function openCategory(key){
+  const cat = providers[key];
+  const en = isEnglish();
+  document.getElementById('modalEm').textContent = cat.em;
+  document.getElementById('modalTitle').textContent = en ? cat.en : cat.ar;
+  const body = document.getElementById('modalBody');
+  if(cat.list.length === 0){
+    body.innerHTML = en
+      ? '<p class="empty-note">No partners listed yet in this category. We\'re actively onboarding providers — check back soon!</p>'
+      : '<p class="empty-note">ما في مزوّدين مسجّلين بهالتخصص لسا. نحنا نضم شركاء جدد باستمرار — تابعونا قريبًا!</p>';
+  } else {
+    body.innerHTML = '<ul class="provider-list">' + cat.list.map(n => `<li>${n}</li>`).join('') + '</ul>';
+  }
+  document.getElementById('modalOverlay').classList.add('open');
+}
+function closeCategory(){
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
 function toggleLang(){
   const html = document.getElementById('htmlRoot');
   const btn = document.getElementById('langBtn');
